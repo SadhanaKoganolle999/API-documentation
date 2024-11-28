@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  title: Open api specification
+  version: 0.0.1
+paths:
+  /categories:
+    get:
+      summary: Open api specification
+      description: Open api specification
+      parameters:
+        - name: categoryId
+          in: query
+          schema:
+            tyep: integer
+            minimum: 1000
+            maximum: 100000
+          example: 1001
+      responses: 
+        200:
+          description: list of categories
+        conent: 
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+              properties:
+                categoryID: 
+                  type: integer
+                  maximum: 1000
+                  minimum:  100
+                name:
+                  type: string
+  /category/{categoryId}:
+    get:
+      summary: Open api specification
+      decsription: Open api specification
+      parameters:
+        - name: categoryID
+          in: path
+          required: true
+          schema:
+            type: integer
+            maximum: 1000
+            minimum: 100
+          example: 102
+      responses:
+        200:
+          description: Open api specification
+          required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            properties:
+              categoryId:
+                type: integer
+                maximum: 1000
+                minimum: 100
+              name:
+                type: string
+  /products:
+    get:
+      summary: List of products
+      description: product Id
+      parameters:
+        - name: CatogeryID
+          in: query
+          schema:
+            tyep: integer
+            minimum: 1000
+            maximum: 100000
+          example: 1001
+      responses: 
+        200:
+          description: list of products
+        conent: 
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+              properties:
+                ProductID: 
+                  type: integer
+                  maximum: 1000
+                  minimum:  100
+                name:
+                  type: string
+                price:
+                  type: number
+                categoryName:
+                  type: string
+                quantity:
+                  type: integer
+                  maximum: 100
+                  minimum: 1
+  /products/{productID}:
+    get:
+      summary: list of products
+      decsription: products list
+      parameters:
+        - name: ProductID
+          in: path
+          required: true
+          schema:
+            type: integer
+            maximum: 1000
+            minimum: 100
+          example: 102
+      responses:
+        200:
+          description: Open api specification
+          required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            properties:
+              ProductID: 
+                type: integer
+                maximum: 1000
+                minimum:  100
+              name:
+                type: string
+              price:
+                type: number
+              categoryName:
+                type: string
+              quantity:
+                type: integer
+                maximum: 100
+                minimum: 1            
+        
